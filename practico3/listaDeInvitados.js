@@ -1,4 +1,4 @@
-let personas = ["Jose", "Maria", "Juan", "Andres", "Lionel", "Sofia", "Leandro", "Emilia"];
+let personas = ["Jose","Maria","Juan","Andres","Lionel","Sofia","Leandro","Emilia"];
 let admitidos = [];
 let rechazados = [];
 for ( let i = 0; i < personas.length; i++ ) {
