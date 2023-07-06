@@ -1,7 +1,7 @@
 const PIEDRA = "piedra";
 const PAPEL = "papel";
 const TIJERAS = "tijeras";
-
+const readlineSync = require(`readline-sync`);
 function obtenerJugadaComputadora() {
     const opciones = [PIEDRA, PAPEL, TIJERAS];
     const indice = Math.floor(Math.random()*opciones.length );
@@ -9,7 +9,6 @@ return opciones[indice];
 }
 
 function obtenerJugadaUsuario() {
-    const readlineSync = require('readline-sync');
     let jugadaUsuario = readlineSync.question('Por favor ingrese su jugada "piedra", "papel" o "tijeras"').toLowerCase();
    return jugadaUsuario;
 }
@@ -27,8 +26,11 @@ function determinarGanador(jugadaComputador, jugadaUsuario) {
     }
 }
 function jugarPiedraPapelTijeras() {
-    const readlineSync = require(`readline-sync`);
-    let jugadas = readlineSync.question("¿En cuantas jugadas quieres terminar el juego?");
+    let jugadas
+    do {
+        jugadas = readlineSync.question("¿En cuantas jugadas quieres terminar el juego?");
+    } while (jugadas <= 0 || jugadas > 3 || isNaN(jugadas));
+
     let contadorComputadora = 0;
     let contadorUsuario = 0;
 
